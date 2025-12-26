@@ -32,6 +32,14 @@ public class ChatController {
                 .content();
     }
 
+    @GetMapping("/stories-by-topic")
+    public String storiesByTopic(@RequestParam String topic) {
+        return chatClient.prompt()
+                .user(u -> u.text("Tell me a short story about {topic}").param("topic", topic))
+                .call()
+                .content();
+    }
+
     @GetMapping("jokes-with-response")
     public ChatResponse jokeWithResponse(@RequestParam(value = "message", defaultValue = "Tell me a dad joke about computers") String message) {
         return chatClient.prompt()
