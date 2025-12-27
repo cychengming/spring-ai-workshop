@@ -33,7 +33,7 @@ public class DoubaoController {
 
     private void initializeService() {
         if (apiKey == null || apiKey.isEmpty()) {
-            throw new IllegalArgumentException("Doubao API key is required. Set doubao.api.key in application.properties");
+            throw new IllegalArgumentException("Doubao API key is required. Set DOUBAO_API_KEY environment variable or doubao.api.key in application.properties");
         }
         
         ConnectionPool connectionPool = new ConnectionPool(5, 1, TimeUnit.SECONDS);
